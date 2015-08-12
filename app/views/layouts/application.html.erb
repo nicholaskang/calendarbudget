@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Forecashter</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+	<body>
+		<div class="outer">
+			<div class="top-bar">
+				<div class="container">				
+					<!-- Contact -->
+					<div class="tb-contact pull-left">
+						<i class="fa fa-envelope color"></i> &nbsp; <a href="mailto:nickkang257@gmail.com">nickkang257@gmail.com</a>
+						&nbsp;&nbsp;  
+						<i class="fa fa-phone color"></i> &nbsp; +1 (425) 319-22**
+					</div>
+					<!-- Social media -->
+					<div class="tb-social pull-right">
+						<div class="brand-bg text-right">
+							<!-- Brand Icons -->
+							<a href="#" class="facebook"><i class="fa fa-facebook square-2 rounded-1"></i></a>
+							<a href="#" class="twitter"><i class="fa fa-twitter square-2 rounded-1"></i></a>
+							<a href="#" class="google-plus"><i class="fa fa-google-plus square-2 rounded-1"></i></a>
+							<a href="#" class="linkedin"><i class="fa fa-linkedin square-2 rounded-1"></i></a>
+							<a href="#" class="pinterest"><i class="fa fa-pinterest square-2 rounded-1"></i></a>
+							<%= link_to "Sign Up", "/users/sign_up" unless current_user %> 
+					    <%= link_to "Sign In", "/users/sign_in" unless current_user %>
+					    <%= link_to "Sign Out", "/users/sign_out", method: :delete if current_user %>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+			
+			<!-- Header two -->
+			<div class="header-2">
+				<div class="container">
+					<div class="row">
+						<div class="logo">
+							<h1><a href=""><i class="fa fa-laptop"></i><%= link_to "Your Money Forecaster", "/forecasts" %></h1>
+						</div>
+					</div>
+					
+				<div class="row">
+					<div class="col-md-2"></div>
+					<div class="col-md-8">
+						<div class="navy navy-nav">			
+							<ul class="">
+								<li><a href="/forecasts">Home</a></li>			
+									<% if current_user%>
+				    				<li><%= link_to "Budget", "/forecasts/new" %></li>
+									<% else %>
+										<li><%= link_to "Budget", "/users/sign_in" unless current_user %></li>
+									<% end %>
+									<% if current_user%>
+				    				<li><%= link_to "Forecast", "/forecasts/#{current_user.id}" %></li>
+									<% else %>
+										<li><%= link_to "Forecast", "/users/sign_in" unless current_user %></li>
+									<% end %>
+								<li><a href="http://localhost:3000/forecasts#anchor">About Us</a></li>
+								<li><a href="">What's Next</a>
+									<ul>
+										<li><a href="">Monthly Totals</a></li>
+										<li><a href="">Negative Balance Notifications</a></li>
+										<li><a href="">Savings Goals Tracker</a></li>
+										<li><a href="">Retirement Calculator</a></li>
+										<li><a href="">Fastforward to View Total Saving or Spending By Category</a></li>
+										<li><a href="">To Do List</a></li>
+										<li><a href="">Profiles</a></li>
+										<li><a href="">Other Stylistic Features</a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>							
+					</div>
+				</div>
+				</div>
+			</div>
+			<!-- Header two ends -->
+			
+
+			<div class="container budget">
+				<%= yield %>
+			</div>
+
+
+			<!-- Foot -->
+			<footer>
+			<div class="foot">
+				<!-- Container -->
+				<div class="container">
+					<div class="row">
+						<div class="col-md-3 col-sm-4">
+							<!-- Foot Item -->
+							<div class="foot-item">
+								<!-- Heading -->
+								<h5 class="bold"><a href="http://localhost:3000/forecasts#anchor"><i class="fa fa-user"></i>&nbsp;&nbsp;About</a></h5>
+
+								<p>Know how much money you will have in the future and when you can afford what.</p>
+								<div class="brand-bg">
+									<!-- Social Media Icons -->
+									<a href="#" class="facebook"><i class="fa fa-facebook circle-3"></i></a>
+									<a href="#" class="twitter"><i class="fa fa-twitter circle-3"></i></a>
+									<a href="#" class="google-plus"><i class="fa fa-google-plus circle-3"></i></a>
+									<a href="#" class="linkedin"><i class="fa fa-linkedin circle-3"></i></a>
+									<a href="#" class="pinterest"><i class="fa fa-pinterest circle-3"></i></a>
+								</div>
+								<div class="subscribe-box">
+									<h5 class="bold">Subscribe :</h5>
+									<!-- Form -->
+									<form role="form">
+										<!-- Input Group -->
+										<div class="input-group">
+											<input type="text" class="form-control" placeholder="Enter Email Id">
+											<span class="input-group-btn">
+												<button class="btn btn-color" type="button">Subscribe</button>
+											</span>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>	
+						<div class="col-md-3 col-sm-4 pull-right">
+							<!-- Foot Item -->
+							<div class="foot-item">
+								<!-- Heading -->
+								<h5 class="bold"><i class="fa fa-building-o"></i>&nbsp;&nbsp;Nick</h5>
+								<!-- Foot Item Content -->
+								<div class="foot-item-content address">
+									<!-- Heading -->
+									<h6 class="bold"><i class="fa fa-home"></i>&nbsp;&nbsp;Chicago, IL</h6>
+									<p class="tel"> <i class="fa fa-phone"></i> +1 (425) 319-22**<br />
+									<i class="fa fa-envelope"></i><a href="#">nickkang257@gmail.com</a><br />
+									<i class="fa fa-calendar"></i> My Forecashter </p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Foot Ends -->
+			
+			<!-- Footer -->
+			
+				<!-- Container -->
+				<div class="container">
+					<!-- Footer Content -->
+						<!-- Paragraph -->
+						<p class="pull-left">Copyright &copy; 2015 - <a href="/forecasts">My Forecashter</a></p>
+						<ul class="list-inline pull-right">
+							<!-- List -->
+							<li><a href="/forecasts">Home</a><li>
+							<li><a href="/forecasts">Service</a></li>
+							<li><a href="/forecasts">Features</a></li>
+							<li><a href="http://localhost:3000/forecasts#anchor">About</a></li>
+							<li><a href="/forecasts">Contact</a></li>
+						</ul>
+						<!-- Clearfix -->
+						<div class="clearfix"></div>
+				</div>
+			</footer>
+			
+			<!-- Footer Ends -->
+		
+		</div>
+		
+		<!-- Outer Ends -->		
+		
+		<!-- Scroll to top -->
+		<span class="totop"><a href="#"><i class="fa fa-angle-up bg-color"></i></a></span>
+		
+		<!-- Javascript files -->
+		<!-- jQuery -->
+		
+		<script type="text/javascript">
+			<!-- Counting code -->
+			$(document).ready(function(){
+				// Way Points With Count To()
+				$('.number-count').waypoint(function(down){
+					if(!$(this).hasClass('stop-counter'))
+					{
+						$(this).countTo();
+						$(this).addClass('stop-counter');
+					}
+				}, { 
+					offset: '90%' 
+				});
+			});		
+		</script>
+		
+		<script type="text/javascript">
+			jQuery(document).ready(function() {
+				jQuery('.r-slider .banner').revolution({
+					delay:7000,
+					startheight:400,
+					startwidth:1000,
+					startWithSlide:0,
+		 
+					fullScreenAlignForce:"off",
+					autoHeight:"off",
+		 
+					shuffle:"off",
+		 
+					onHoverStop:"on",
+		 
+					thumbWidth:100,
+					thumbHeight:50,
+					thumbAmount:3,
+		 
+					hideThumbsOnMobile:"on",
+					hideNavDelayOnMobile:1500,
+					hideBulletsOnMobile:"off",
+					hideArrowsOnMobile:"off",
+					hideThumbsUnderResoluition:0,
+		 
+					hideThumbs:10,
+					hideTimerBar:"on",
+		 
+					keyboardNavigation:"on",
+		 
+					navigationType:"bullet",
+					navigationArrows:"solo",
+					navigationStyle:"round",
+		 
+					navigationHAlign:"center",
+					navigationVAlign:"bottom",
+		 
+					soloArrowLeftHalign:"left",
+					soloArrowLeftValign:"center",
+					soloArrowLeftHOffset:20,
+					soloArrowLeftVOffset:0,
+		 
+					soloArrowRightHalign:"right",
+					soloArrowRightValign:"center",
+					soloArrowRightHOffset:20,
+					soloArrowRightVOffset:0,
+		 
+		 
+					touchenabled:"on",
+					swipe_velocity:"0.7",
+					swipe_max_touches:"1",
+					swipe_min_touches:"1",
+					drag_block_vertical:"false",
+		 
+					stopAtSlide:-1,
+					stopAfterLoops:-1,
+					hideCaptionAtLimit:0,
+					hideAllCaptionAtLilmit:0,
+					hideSliderAtLimit:0,
+		 
+					dottedOverlay:"none",
+		 
+					spinned:"spinner4",
+		 
+					fullWidth:"off",
+					forceFullWidth:"off",
+					fullScreen:"off",
+					fullScreenOffsetContainer:"#topheader-to-offset",
+		 
+				});
+			});
+		</script>
+		
+		
+		<!-- 
+		Style switcher. This is just for demo purpose only. 
+		If you don't want remove the below line.
+		Some of the features of style switcher won't work on offline. THey only work when you upload it to server 
+		-->
+		<!-- <script src="style-switcher/style-switcher.js"></script> -->
+		
+	</body>	
+</html>

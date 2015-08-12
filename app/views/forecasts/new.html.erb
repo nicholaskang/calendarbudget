@@ -1,0 +1,180 @@
+<div ng-app="app">
+  <div ng-controller="budgetCtrl" ng-init="setup()" class="budget">
+
+  <!-- STARTING BALANCE TABLE -->
+    <div class="col-md-8"> 
+      <div class="alert alert-success flash-message alert-dismissible" role="alert" ng-show="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>{{ alert }}</strong>
+      </div>
+      <h5 class="tabletitle">Starting Balance</h5>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <tr>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Options</th>
+          </tr>
+          <tr>
+            <td>Starting Balance as of Today</td>
+            <td><input ng-model="starting_balance.balance" name="balance_amount"></td>
+            <td><input ng-click="updateIncome(income)" type="button" value="Update" /></td>      
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- INCOME TABLE -->
+    <div class="col-md-12"> 
+      <div class="alert alert-success flash-message alert-dismissible" role="alert" ng-show="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>{{ alert }}</strong>
+      </div>
+      <h5 class="tabletitle">Incomes</h5>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <tr>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Frequency</th>
+            <th>Options</th>
+          </tr>
+          <tr ng-repeat="income in incomes">
+            <td><select ng-model="income.income_type_id" ng-options="incomeType.id as incomeType.name for incomeType in incomeTypes"></select></td>
+            <td><input ng-model="income.income_amount" name="income_amount"></td>
+            <td><input ng-model="income.income_start_date" type="date" name="i_start_date"></td> 
+            <td><input ng-model="income.income_end_date" type="date" name="i_end_date"></td> 
+            <td><select ng-model="income.frequency_id" ng-options="frequencyType.id as frequencyType.name for frequencyType in frequencies"></select></td>  
+            <td><input ng-click="updateIncome(income)" type="button" value="Update" /></td>       
+            <td><input ng-click="deleteIncome(income)" type="button" value="Delete" /></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+     <!-- ADD NEW INCOME -->
+    <input type="button" value="Add an Income" ng-click="addIncomeRow()" class="col-md-12">
+    <form ng-show="showNewIncomeBox" class="form-horizontal">
+      <div class="form-group">
+        <label for="income_type_id" class="col-sm-2 control-label">Name</label>
+        <div class="col-sm-5">
+          <select ng-model="income.income_type_id" ng-options="incomeType.id as incomeType.name for incomeType in incomeTypes" class="form-control"></select>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="income_amount" class="col-sm-2 control-label">Income Amount</label>
+        <div class="col-sm-5">
+          <input class="form-control" ng-model="income.income_amount" type="integer" name="income_amount"/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="income_start_date" class="col-sm-2 control-label">Income Start Date</label>
+        <div class="col-sm-5">
+          <input class="form-control" ng-model="income.income_start_date" type="date" name="i_start_date">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="income_end_date" class="col-sm-2 control-label">Income End Date</label>
+        <div class="col-sm-5">
+          <input class="form-control" ng-model="income.income_end_date" type="date" name="i_end_date">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="frequency_id" class="col-sm-2 control-label">Frequency</label>
+        <div class="col-sm-5">
+          <select class="form-control" ng-model="income.frequency_id" ng-options="frequencyType.id as frequencyType.name for frequencyType in frequencies"></select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" ng-click="addIncome(income)" class="btn btn-default">Add Income</button>
+        </div>
+      </div>
+    </form>
+
+
+      <!-- YOUR EXPENSE TABLE -->
+    <div class="col-md-12 incometablespace"> 
+      <div class="alert alert-success flash-message alert-dismissible" role="alert" ng-show="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>{{ alert }}</strong>
+      </div>
+      <h5 class="tabletitle">Expenses</h5>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <tr>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Frequency</th>
+            <th>Options</th>
+          </tr>
+          <tr ng-repeat="expense in expenses">
+            <td><select ng-model="expense.expense_type_id" ng-options="expenseType.id as expenseType.name for expenseType in expenseTypes"></select></td>
+            <td><input ng-model="expense.expense_amount" name="expense_amount"></td>
+            <td><input ng-model="expense.expense_start_date" type="date" name="e_start_date"></td> 
+            <td><input ng-model="expense.expense_end_date" type="date" name="e_end_date"></td> 
+            <td><select ng-model="expense.frequency_id" ng-options="frequencyType.id as frequencyType.name for frequencyType in frequencies"></select></td>  
+            <td><input ng-click="updateExpense(expense)" type="button" value="Update" /></td>            
+            <td><input ng-click="deleteExpense(expense)" type="button" value="Delete" /></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+     <!-- ADD NEW EXPENSE -->
+    <input type="button" value="Add an Expense" ng-click="addExpenseRow()" class="col-md-12">
+    <form ng-show="showNewExpenseBox" class="form-horizontal">
+
+      <div class="form-group">
+        <label for="expense_type_id" class="col-sm-2 control-label">Name</label>
+        <div class="col-sm-5">
+          <select class="form-control" ng-model="expense.expense_type_id" ng-options="expenseType.id as expenseType.name for expenseType in expenseTypes" class="form-control"/></select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="expense_amount" class="col-sm-2 control-label">Expense Amount</label>
+        <div class="col-sm-5">
+          <input class="form-control" ng-model="expense.expense_amount" type="integer" name="expense_amount">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="expense_start_date" class="col-sm-2 control-label">Expense Start Date</label>
+        <div class="col-sm-5">
+          <input class="form-control" ng-model="expense.expense_start_date" type="date" name="e_start_date">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="expense_end_date" class="col-sm-2 control-label">Expense End Date</label>
+        <div class="col-sm-5">
+          <input class="form-control" ng-model="expense.expense_end_date" type="date" name="e_end_date">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="frequency_id" class="col-sm-2 control-label">Frequency</label>
+        <div class="col-sm-5">
+          <select class="form-control" ng-model="expense.frequency_id" ng-options="frequencyType.id as frequencyType.name for frequencyType in frequencies"></select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" ng-click="addExpense(expense)" class="btn btn-default">Add Expense</button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>

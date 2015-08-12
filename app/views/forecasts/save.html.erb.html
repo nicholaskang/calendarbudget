@@ -1,0 +1,59 @@
+Forecast = {"7-10-2015" => {} }
+
+Forecast = {
+  "7-10-2015" => {incomes => [{}], expenses => [{ }], balance => 0}
+}
+
+Forecast = {
+  "7-10-2015" => {incomes => [{"a" => 1, "b" => 2}], expenses => [{ }], balance => 0}
+}
+
+
+Forecast = {
+  "7-10-2015" => {
+    incomes => [ 
+      {salary => 20},
+      {gifts => 100}
+    ],
+    expenses => [
+      {gas_bill => 20},
+      {rent => 50}
+    ],
+    balance => 900  
+  }, 
+  "7-11-2015" => {
+    incomes => [],
+    expenses => [],
+    balance => 900 
+  }
+}
+
+
+
+  <div>
+    Enter Your Goals:
+  </div>
+  <div>    
+    Goal Type: <%= select_tag "goal_type_id", options_from_collection_for_select(GoalType.all, "id", "name") %>
+  </div>
+  <div>
+    <%= label_tag :total_amount %>
+    <%= text_field_tag :total_amount %>    
+  </div>
+  <div>
+    <%= label_tag :contribution %>
+    <%= text_field_tag :contribution %>    
+  </div>
+  <div>
+    Frequency of contributions: <%= select_tag "frequency_id", options_from_collection_for_select(Frequency.all, "id", "value") %>
+  </div>
+  <div>
+    <%= label_tag :goal_start_date %>
+    <%= date_select "goal", "goal_start_date" %>
+  </div>
+  <div>
+    <%= label_tag :goal_end_date %>
+    <%= date_select "goal", "goal_end_date" %>
+  </div>
+  <%= submit_tag "Create A New Forecast" %>
+<% end %>

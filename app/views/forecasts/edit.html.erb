@@ -1,0 +1,57 @@
+<h2>Edit your forecast</h2>
+
+<%= form_tag '/forecasts/#{@user.id}', method: :patch do %>
+
+  <div>
+    Enter your Starting Balance:
+  </div>
+  <div>
+    <%= label_tag :starting_balance %>
+    <%= text_field_tag :balance_amount %>    
+  </div> 
+<br>
+  <div>
+    Enter your Expected Income:
+  </div>
+  <div>    
+    Income Type: <%= select_tag "income_type_id", options_from_collection_for_select(IncomeType.all, "id", "name") %>
+  </div>
+  <div>
+    <%= label_tag :income_amount %>
+    <%= text_field_tag :income_amount %> 
+  </div>
+  <div>
+    Frequency: <%= select_tag "frequency_id", options_from_collection_for_select(Frequency.all, "id", "value") %>
+  </div>
+  <div>
+    <%= label_tag :income_start_date %>
+    <%= select_date Time.now, prefix: :income_start_date %>
+  </div>
+  <div>
+    <%= label_tag :income_end_date %>
+    <%= select_date Time.now, prefix: :income_end_date %>    
+  </div>
+<br>
+  <div>
+    Enter Your Expected Expenses:
+  </div>
+  <div>    
+    Expense Type: <%= select_tag "expense_type_id", options_from_collection_for_select(ExpenseType.all, "id", "name") %>
+  </div>
+  <div>
+    <%= label_tag :expense_amount %>
+    <%= text_field_tag :expense_amount %>    
+  </div>
+  <div>
+    Frequency: <%= select_tag "frequency_id", options_from_collection_for_select(Frequency.all, "id", "value") %>
+  </div>
+  <div>
+    <%= label_tag :expense_start_date %>
+    <%= select_date Time.now, prefix: :expense_start_date %>    
+  </div>
+  <div>
+    <%= label_tag :expense_end_date %>
+    <%= select_date Time.now, prefix: :expense_end_date %>    
+  </div>
+  <%= submit_tag "Update Your Forecast" %>
+<% end %>

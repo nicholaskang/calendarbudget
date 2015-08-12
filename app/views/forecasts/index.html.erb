@@ -1,0 +1,204 @@
+<!-- Main content starts -->
+<div class="main-block">
+  
+  <!-- Revolution slider full width starts -->
+      <div class="banner">
+        
+        <div class="index-image">
+        <img src="assets/art-of-money-decisions.jpg" alt="Suni" class="center-block">
+
+        </div>
+      </div>
+  <!-- Revolution slider full width ends -->
+
+  <div class="container">
+    <br />
+    <div class="text-center">
+      <h3><span class="color">Your</span> new tool to plan your <span class="color">future</span>.</h3>
+      <p>Finally, a web application that can help you <br>quickly forecast your future financial transactions and balance.</p>
+    </div> 
+    <div class="divider-1"></div>
+    
+    <!-- Image Box #3 Starts -->
+
+    <div class="img-box-3 text-center">
+      <div class="row">
+
+        <div class="col-md-4">
+          <!-- Image Box #3 Item -->
+          <div class="img-box-3-item">
+            <div class="img-box-3-icon bg-purple">
+              <a href="/users/sign_in"><img src="assets/theme/flat-icons/17.png" alt="" class="img-responsive" /></a>
+            </div>
+            <h4><a href="/users/sign_in">Create an Account</a></h4>
+            <div class="bor bg-purple"></div>
+            <p>Sign up today and create your forecast in less than 10 minutes!</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <!-- Image Box Item -->
+          <div class="img-box-3-item">
+            <div class="img-box-3-icon bg-yellow">
+              <a href=""><img src="assets/theme/flat-icons/14.png" alt="" class="img-responsive" /></a>
+            </div>
+            <h4><a href="/forecast/new">Enter in your Budget</a></h4>
+            <div class="bor bg-yellow"></div>
+            <p>Fill out your budget in our interactive form table!</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <!-- Image Box Item -->
+          <div class="img-box-3-item">
+            <div class="img-box-3-icon bg-lblue">
+              <a href=""><img src="assets/theme/flat-icons/3.png" alt="" class="img-responsive" /></a>
+            </div>
+            <% if user_signed_in? %>
+              <h4><a href="/forecasts/<%= @user.id %>">See Your Forecast</a></h4>
+            <% else %>
+              <h4><a href="/users/sign_in">Sign in!</a></h4>
+            <% end %>
+            <div class="bor bg-lblue"></div>
+            <p>See a monthly snapshot of all your future recurring financial transactions and balances!</p>
+            </div>
+          </div>
+
+        </div>  
+      </div>
+    <!-- Image Box Ends -->
+    
+    <!-- Textbox/Bullets Description -->
+<div class="row steps"> 
+  <div class="col-md-1"></div>
+  <div class="col-md-5 col-sm-3">
+    <div class="divider-1"></div>
+    <div class="block-heading-two">
+      <h3><span>Why Choose Us?</span></h3>
+    </div>
+    <p>This web application is like none you've seen before!</p>
+      <ul class="list-2">
+        <li>While most personal finance applications simply track what you've spent, we help you plan for your future.</li>
+        <li>Entering in your financial information is quick, easy, and painless.</li>
+        <li>We can show you when all of your incomes and expenses occur in a convenient calendar view.</li>
+        <li>You can finally see exactly when you can afford what without doing all of the math.</li>
+      </ul>
+    <br />
+  </div>
+
+  <div class="col-md-5 col-sm-3">
+    <div class="divider-1"></div>
+    <div class="block-heading-two">
+      <h3><span>How It Works</span></h3>
+    </div>
+    <p>After you create an account, you can see your forecast in 4 easy steps! Click each step to learn more.</p>
+      <!-- Accordion starts -->
+    <div class="panel-group accordion-alt3" id="accordion-alt3">
+      <!-- Panel. Use "panel-XXX" class for different colors. Replace "XXX" with color. -->
+      
+      <div class="panel"> 
+        <!-- Panel heading -->
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion-alt3" href="#collapseOne-alt3">
+              <i class="fa fa-angle-right"></i> Enter your starting balance
+            </a>
+          </h4>
+        </div>
+        <div id="collapseOne-alt3" class="panel-collapse collapse">
+            <!-- Panel body -->
+          <div class="panel-body">
+            Find out how much money you have as of today. Go to the Budget page and enter in that into the first table.
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion-alt3" href="#collapseTwo-alt3">
+              <i class="fa fa-angle-right"></i> Add your expected incomes and expenses
+            </a>
+          </h4>
+        </div>
+        <div id="collapseTwo-alt3" class="panel-collapse collapse">
+          <div class="panel-body">
+        Go to the income or expense table on the Budget page. Create a new recurring income or expense by clicking the "Add an Income" or "Add an Expense" button below the respective income and expense table. Then, fill out the short form by select the name of your income or expense, the amount, when that transaction will start, when it will end, and the frequency of the event. Click the "Add Income" or "Add Expense" button and it will be immediately entered in.
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion-alt3" href="#collapseThree-alt3">
+            <i class="fa fa-angle-right"></i> View your forecast
+            </a>
+          </h4>
+        </div>
+        <div id="collapseThree-alt3" class="panel-collapse collapse">
+          <div class="panel-body">
+        Go to the Forecast page and all of the income and expenses you entered in on the Budget page will be populated in a monthly calendar view. This app finds all the recurring dates within the start and end date based on the frequency you selected, displays them on every recurring date, and calculates the balance for every single day. 
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion-alt3" href="#collapseFour-alt3">
+            <i class="fa fa-angle-right"></i> Update your information
+            </a>
+          </h4>
+        </div>
+        <div id="collapseFour-alt3" class="panel-collapse collapse">
+          <div class="panel-body">
+        Go to the Budget page and select the update or delete button on the right on the right of the income or expense you wish to edit. Those changes will be immediately reflected on the calendar.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+    <br />
+    <br />
+    <!-- Accordion ends -->
+
+    <!-- Quote Two Content -->
+    <div class="quote-two">
+      <div class="container">
+        <div class="quote-two-content">
+          <span class="Quote">&#8220;</span>
+          <h3>Failing to plan is planning to fail.</h3>
+          <h5>-Alan Lakein</h5>
+          <div class="owl-carousel" data-items="1" data-auto-play="true" data-pagination="true" data-single-item="true">
+          </div> 
+        </div>
+      </div>          
+    </div>
+    <br />
+  
+    <div class="container">
+    <a name="anchor"></a>
+      <!-- Block heading two -->
+      <div class="block-heading-two">
+        <h3><span>About Us</span></h3>
+      </div>  
+      <div class="row">
+        <div class="col-md-6 col-sm-1">
+          <p class="para-big">The founder of this application moved to Chicago by himself at the age of 25 to start a new life for himself. Within months, he lost his job and realized he was experiencing a hardship many Americans are facing today: unemployment.</p>
+          <p>Although he had a college degree, he sent out over 50 applications a week with no luck for months. His biggest worry became wondering if he would have enough money for next month's rent. Most personal finance applications only showed him what he spent his money on, and he was left to plan his future income and expenses on his own. This adruous task was critical for making wise financial decisions and he spent an incredible amount of his time doing calculations and projections wondering where his finances stood. Luckily, he found a job just at the brink of going completely broke. Soon, he discovered his passion for coding and wanted his first app to help people all over the world solve this problem he struggled with. With this tool, he hopes to provide people all over the world with forecasts of their money so they can accurately plan and make wise financial decisions.</p>
+          <br />
+        </div>
+        <div class="col-md-6 col-sm-1 text-center">
+          <%= image_tag("quote.jpg") %>
+        </div>
+      </div>
+      <br />
+      <hr />
+    </div>
+  </div>
+</div>
+
+<!-- Main content ends -->

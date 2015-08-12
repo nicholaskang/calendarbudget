@@ -1,0 +1,32 @@
+.index-image.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logo {
+  text-align: center;
+}
+
+.navy-nav {
+  text-align: center;
+  display: table;
+  margin: 0 auto;
+}
+
+.flash-message {
+  position: fixed;
+  top: 100px;
+  left: 0px;
+  right: 0px;
+  z-index: 10000;
+  margin: 0% 5% 0% 5%;
+}
+
+.steps {
+  font-size: 110%;
+}
+
+.tabletitle {
+  font-size: 150%;
+}
