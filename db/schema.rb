@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150812172128) do
+ActiveRecord::Schema.define(version: 20150813213056) do
 
   create_table "expense_types", force: :cascade do |t|
     t.string "name", limit: 255
@@ -53,14 +53,12 @@ ActiveRecord::Schema.define(version: 20150812172128) do
   end
 
   create_table "incomes", force: :cascade do |t|
-    t.integer "user_id",                limit: 4
-    t.integer "income_type_id",         limit: 4
-    t.decimal "income_amount",                    precision: 10
-    t.integer "frequency_id",           limit: 4
+    t.integer "user_id",           limit: 4
+    t.integer "income_type_id",    limit: 4
+    t.decimal "income_amount",               precision: 10
+    t.integer "frequency_id",      limit: 4
     t.date    "income_start_date"
     t.date    "income_end_date"
-    t.integer "balance_amount",         limit: 4
-    t.date    "starting_balance_as_of"
   end
 
   create_table "starting_balances", force: :cascade do |t|

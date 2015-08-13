@@ -51,7 +51,6 @@
         });
       }
 
-
     // Incomes Functions
 
     $scope.addIncomeRow = function(){
