@@ -14,7 +14,6 @@
 					<div class="tb-contact pull-left">
 						<i class="fa fa-envelope color"></i> &nbsp; <a href="mailto:nickkang257@gmail.com">nickkang257@gmail.com</a>
 						&nbsp;&nbsp;  
-						<i class="fa fa-phone color"></i> &nbsp; +1 (425) 319-22**
 					</div>
 					<!-- Social media -->
 					<div class="tb-social pull-right">
@@ -39,7 +38,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="logo">
-							<h1><a href=""><i class="fa fa-laptop"></i><%= link_to "Your Money Forecaster", "/forecasts" %></h1>
+							<h1><a href=""><i class="fa fa-calendar-o"></i><%= link_to " My Forecashter", "/forecasts" %></h1>
 						</div>
 					</div>
 					
@@ -50,12 +49,12 @@
 							<ul class="">
 								<li><a href="/forecasts">Home</a></li>			
 									<% if current_user%>
-				    				<li><%= link_to "Budget", "/forecasts/new" %></li>
+				    					<li><%= link_to "Budget", "/forecasts/new" %></li>
 									<% else %>
 										<li><%= link_to "Budget", "/users/sign_in" unless current_user %></li>
 									<% end %>
 									<% if current_user%>
-				    				<li><%= link_to "Forecast", "/forecasts/#{current_user.id}" %></li>
+				    					<li><%= link_to "Forecast", "/forecasts/#{current_user.id}" %></li>
 									<% else %>
 										<li><%= link_to "Forecast", "/users/sign_in" unless current_user %></li>
 									<% end %>
@@ -66,10 +65,10 @@
 										<li><a href="">Negative Balance Notifications</a></li>
 										<li><a href="">Savings Goals Tracker</a></li>
 										<li><a href="">Retirement Calculator</a></li>
-										<li><a href="">Fastforward to View Total Saving or Spending By Category</a></li>
+										<li><a href="">Future Saving or Spending Totals</a></li>
 										<li><a href="">To Do List</a></li>
 										<li><a href="">Profiles</a></li>
-										<li><a href="">Other Stylistic Features</a></li>
+										<li><a href="">More Stylistic Features</a></li>
 									</ul>
 								</li>
 							</ul>
@@ -131,9 +130,8 @@
 								<div class="foot-item-content address">
 									<!-- Heading -->
 									<h6 class="bold"><i class="fa fa-home"></i>&nbsp;&nbsp;Chicago, IL</h6>
-									<p class="tel"> <i class="fa fa-phone"></i> +1 (425) 319-22**<br />
-									<i class="fa fa-envelope"></i><a href="#">nickkang257@gmail.com</a><br />
-									<i class="fa fa-calendar"></i> My Forecashter </p>
+									<i class="fa fa-envelope"></i><a href="#">  nickkang257@gmail.com</a><br />
+									<i class="fa fa-calendar"></i>  My Forecashter </p>
 								</div>
 							</div>
 						</div>
